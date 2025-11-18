@@ -1,0 +1,13 @@
+receptor = 8IFR_PROTEIN.pdbqt
+ligand = P0O.pdbqt
+
+center_x = -2.606
+center_y = 11.979
+center_z = -25.049
+
+size_x = 126
+size_y = 112
+size_z = 126
+
+out = out.pdbqt
+log = log.txt
