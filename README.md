@@ -1,64 +1,63 @@
 # PROTEIN-LIGAND-DOCKING-8IFR-SARS-CoV-2-3CL-protease-3CLpro-in-complex-with-compound-3-
 PROTEIN LIGAND DOCKING 8IFR = SARS-CoV-2 3CL protease (3CLpro) in complex with compound 3 
-# Molecular Docking Simulation: Protein-Ligand Interaction (8IFR and P0O) 🧪🖥️
+# Protein-Ligand Docking Simulation: Interaction Analysis (8IFR and P0O) 🧪🖥️
 
 ## Overview
 
-This repository contains the input files, configuration parameters, and results from a **Protein-Ligand Docking** simulation. The simulation was performed to predict the preferred binding pose and affinity score of a small molecule **ligand (P0O)** within the binding pocket of the **protein (PDB ID: 8IFR)**.
+This repository contains the input files, configuration parameters, and results from a **Protein-Ligand Docking** simulation. This specific application of molecular docking was performed to predict the preferred binding pose and affinity score of the small molecule **ligand (P0O)** within the binding pocket of the **protein (PDB ID: 8IFR)**.
 
-The primary tool used for this simulation is likely **AutoDock Vina** or a related software, based on the use of `.pdbqt` and configuration files.
+The simulation files, including `.pdbqt` and configuration files, suggest the use of **AutoDock Vina** or a related docking software package.
 
 ---
 
 ## Target System Details
 
-* **Protein Target (Receptor):** PDB ID **8IFR** (Found in files: `8IFR.pdb`, `8IFR_PROTEIN.pdb`, `8IFR_PROTEIN.pdbqt`, `8ifr.cif`).
-* **Ligand (Small Molecule):** **P0O** (Found in files: `3. P0O_LIGAND.pdb`, `4. P0O.pdbqt`).
-* **Methodology:** Molecular Docking (Likely rigid or flexible receptor docking).
+* **Protein Target (Receptor):** PDB ID **8IFR**.
+* **Ligand (Small Molecule):** **P0O**.
+* **Simulation Goal:** Predict the stable binding conformation and quantify the predicted binding affinity (e.g., in kcal/mol).
 
 ---
 
 ## Repository Files
 
-This repository is organized into input and output files crucial for reproducing and analyzing the docking results.
+This repository is organized into input files necessary for running the simulation and output files containing the results.
 
-### 📥 Input Files (Preparation)
+### 📥 Input Files (Preparation & Configuration)
 
 | File Name | Format | Description |
 | :--- | :--- | :--- |
-| `1. 8IFR.pdb` | PDB | Original PDB structure file for the protein. |
-| `2. 8IFR_PROTEIN.pdb` | PDB | Prepared protein structure (cleaned, protonated, etc.). |
+| `1. 8IFR.pdb` | PDB | Original Protein Data Bank structure file. |
+| `2. 8IFR_PROTEIN.pdb` | PDB | Cleaned and prepared protein structure file. |
 | `3. P0O_LIGAND.pdb` | PDB | Prepared ligand structure file. |
-| `8ifr.cif` | CIF | Crystallographic Information File for the protein structure (alternative format). |
+| `8IFR_PROTEIN.pdbqt` | PDBQT | **Receptor file prepared for AutoDock Vina** (includes charges and atom types). |
 | `4. P0O.pdbqt` | PDBQT | **Ligand file prepared for AutoDock Vina** (includes charges and atom types). |
-| `5. 8IFR_PROTEIN.pdbqt` | PDBQT | **Receptor file prepared for AutoDock Vina** (includes charges and atom types). |
-| `config.txt` | Text | **Docking configuration file** specifying the search space (grid box coordinates) and parameters. |
+| `config.txt` | Text | **Docking configuration file** specifying the search space (grid box coordinates) and simulation parameters. |
+| `8ifr.cif` | CIF | Crystallographic Information File (alternative structure format). |
 
 ### 📤 Output Files (Results)
 
 | File Name | Format | Description |
 | :--- | :--- | :--- |
 | `out.pdb` | PDB | Predicted **best binding pose** of the ligand within the receptor cavity. |
-| `out.pdbqt` | PDBQT | Docking results file containing all predicted poses and their corresponding **binding affinity scores** (e.g., kcal/mol). |
-| `log.txt` | Text | Log file output from the docking software, detailing the execution steps, energy minimization, and final results summary. |
+| `out.pdbqt` | PDBQT | **Docking results file** containing all predicted poses and their corresponding **binding affinity scores**. |
+| `log.txt` | Text | Log file output from the docking software, detailing the execution steps, command parameters, and final results summary. |
 
 ---
 
 ## Setup and Analysis
 
-To view and verify the docking results, you will typically need a molecular visualization and analysis tool.
+To analyze the predicted interaction, you will need molecular visualization software.
 
 1.  **Dependencies:**
-    * **Molecular Viewer:** PyMOL, ChimeraX, or VMD.
-    * **Docking Software (Optional):** AutoDock Vina (if re-running the simulation).
+    * **Molecular Viewer:** PyMOL, ChimeraX, or VMD (for visualizing PDB/PDBQT files).
+    * **Docking Software (Optional):** AutoDock Vina (if reproducing the simulation).
 
-2.  **Visualization Steps:**
-    * Load the prepared receptor: `5. 8IFR_PROTEIN.pdb` or `5. 8IFR_PROTEIN.pdbqt`.
-    * Load the docking result: `out.pdbqt`. The viewer can typically read the various binding poses and scores directly from this file.
-    * Examine the **binding affinity score** in the `log.txt` or the `out.pdbqt` file to determine the predicted strength of the protein-ligand interaction.
+2.  **Visualization Key:**
+    * Load the prepared receptor (`5. 8IFR_PROTEIN.pdbqt`).
+    * Load the results (`out.pdbqt`).
+    * Examine the predicted **binding pose** (`out.pdb`) and the top **binding affinity score** (found in `log.txt` and `out.pdbqt`) to quantify the strength and location of the interaction.
 
-The `config.txt` file defines the search space. Key parameters from this file are likely:
+The search space used in the simulation is defined in `config.txt`. Key parameters determined the location of the binding pocket:
 
 * **Center X/Y/Z:** [Check `config.txt` and fill in coordinates]
 * **Size X/Y/Z:** [Check `config.txt` and fill in dimensions]
-* **Exhaustiveness:** [Check `config.txt` and fill in value]
